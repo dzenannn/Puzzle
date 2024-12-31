@@ -1,4 +1,4 @@
-# puzzle-game
+# Funny puzzle-game to play when you're bored! 🙂
 
 ## Project setup
 ```
@@ -9,4 +9,3 @@ npm install
 ```
 npm run serve
 ```
-# Funny puzzle-game to play when you're bored! 🙂
