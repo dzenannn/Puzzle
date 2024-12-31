@@ -9,3 +9,4 @@ npm install
 ```
 npm run serve
 ```
+# Funny puzzle-game to play when you're bored! 🙂
