@@ -1,7 +1,11 @@
 <template>
-  <PuzzlesComponent @puzzle-changed="selectedPuzzleId = $event" />
-  <RecordsComponent />
-  <SliderPuzzle :puzzleId="selectedPuzzleId" />
+  <div style="border-bottom: 2px solid black">
+    <PuzzlesComponent @puzzle-changed="selectedPuzzleId = $event" />
+  </div>
+  <div style="border-bottom: 2px solid black; padding-bottom: 1.5rem">
+    <RecordsComponent />
+  </div>
+  <div><SliderPuzzle :puzzleId="selectedPuzzleId" /></div>
 </template>
 
 <script>
@@ -25,7 +29,11 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Quicksand:wght@300..700&display=swap");
 body {
-  min-height: 140vh;
+  background: linear-gradient(rgb(69, 94, 0) 70%, rgb(37, 37, 37));
+  font-family: "Quicksand";
+  margin-bottom: 20vh;
+  text-align: center;
 }
 </style>

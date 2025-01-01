@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Records</h1>
-    <button @click="getRecords">Refresh</button>
+    <h1>Rekordi 🏆</h1>
+    <button @click="getRecords">Osveži 🔁</button>
     <div v-for="(r, index) of records" :key="index">
       {{ index + 1 }} - {{ r.elapsedTime }}
     </div>

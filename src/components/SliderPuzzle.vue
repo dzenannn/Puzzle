@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>Swap the Images to Win</h1>
-    <button @click="start" id="start-button">Start Game</button>
-    <button @click="stop" id="quit-button">Quit</button>
-    <p>Elapsed Time: {{ elapsedTime }}</p>
-    <p v-if="isWinning">You win</p>
+    <h1>Zamenite mesta slikama da biste pobedili 🏁</h1>
+    <button @click="start" id="start-button">Započni igru 🆕</button>
+    <button @click="stop" id="quit-button">Zaustavi 🛑</button>
+    <p>Proteklo vreme: {{ elapsedTime }} 🕐</p>
+
     <div class="row">
       <div
         class="column"
@@ -15,6 +15,17 @@
         <img :src="require(`../assets/${puzzleId}/${s}`)" />
       </div>
     </div>
+    <p
+      v-if="isWinning"
+      style="
+        font-size: 2rem;
+        color: green;
+        text-align: center;
+        font-weight: bold;
+      "
+    >
+      Pobedili ste
+    </p>
   </div>
 </template>
 
@@ -125,7 +136,6 @@ export default {
 </script>
 <style scoped>
 .row {
-  border: 1px solid black;
   margin: auto;
   display: flex;
   max-width: 50vw;
@@ -139,5 +149,6 @@ export default {
 
 .column img {
   max-width: 100%;
+  object-fit: contain;
 }
 </style>
