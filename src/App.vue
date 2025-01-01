@@ -44,7 +44,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: linear-gradient(40deg, #b3b3b3 30%, #0c8ea5);
+  min-height: 100vh;
+  background: linear-gradient(40deg, #b3b3b3 30%, #0c8ea5) no-repeat;
   font-family: "Quicksand";
   margin-bottom: 10vh;
   text-align: center;

@@ -18,11 +18,12 @@ export default {
   data() {
     return {
       puzzles: [
-        { id: "cut-pink", image: "pink.jpg", title: "Roze Cvet" },
-        { id: "cut-red", image: "red.jpg", title: "Crveni Cvet" },
-        { id: "cut-purple", image: "purple.jpg", title: "Ljubičasti Cvet" },
+        // { id: "cut-pink", image: "pink.jpg", title: "Roze Cvet" },
+        // { id: "cut-red", image: "red.jpg", title: "Crveni Cvet" },
+        // { id: "cut-purple", image: "purple.jpg", title: "Ljubičasti Cvet" },
         { id: "cut-glavonja", image: "glavonja.jpg", title: "Glavonja" },
-        { id: "cut-cs", image: "cs.jpg", title: "Kanter Strajk" },
+        { id: "cut-safet", image: "safet.jpg", title: "Konjina" },
+        // { id: "cut-cs", image: "cs.jpg", title: "Kanter Strajk" },
       ],
     };
   },
