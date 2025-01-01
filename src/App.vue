@@ -1,11 +1,14 @@
 <template>
   <div style="border-bottom: 2px solid black">
-    <PuzzlesComponent @puzzle-changed="selectedPuzzleId = $event" />
+    <PuzzlesComponent @puzzle-changed="onPuzzleChanged" />
   </div>
-  <div style="border-bottom: 2px solid black; padding-bottom: 1.5rem">
+  <div
+    v-if="isChosen"
+    style="border-bottom: 2px solid black; padding-bottom: 1.5rem"
+  >
     <RecordsComponent />
   </div>
-  <div><SliderPuzzle :puzzleId="selectedPuzzleId" /></div>
+  <div v-if="isChosen"><SliderPuzzle :puzzleId="selectedPuzzleId" /></div>
 </template>
 
 <script>
@@ -22,8 +25,15 @@ export default {
   },
   data() {
     return {
-      selectedPuzzleId: "cut-pink",
+      selectedPuzzleId: null,
+      isChosen: false,
     };
+  },
+  methods: {
+    onPuzzleChanged(puzzleId) {
+      this.selectedPuzzleId = puzzleId;
+      this.isChosen = true;
+    },
   },
 };
 </script>
@@ -34,9 +44,9 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: linear-gradient(rgb(69, 94, 0) 70%, rgb(37, 37, 37));
+  background: linear-gradient(40deg, #b3b3b3 30%, #0c8ea5);
   font-family: "Quicksand";
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
   text-align: center;
   font-size: 0.75rem;
 }

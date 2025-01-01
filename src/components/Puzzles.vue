@@ -3,14 +3,11 @@
     <h1 style="text-align: center; font-weight: bold">
       Izaberite slagalicu 👇
     </h1>
-    <div class="row" v-for="p of puzzles" :key="p.id">
+    <div class="row" v-for="p of puzzles" :key="p.id" @click="selectPuzzle(p)">
       <div>
         <img :src="require(`../assets/${p.image}`)" />
       </div>
       <h2>{{ p.title }}</h2>
-      <div class="play-button">
-        <button @click="selectPuzzle(p)">Izaberi</button>
-      </div>
     </div>
   </div>
 </template>
@@ -30,12 +27,14 @@ export default {
     };
   },
   methods: {
-    selectPuzzle(puzzle) {
+    async selectPuzzle(puzzle) {
       this.$emit("puzzle-changed", puzzle.id);
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 150);
     },
   },
 };
@@ -43,14 +42,27 @@ export default {
 
 <style scoped>
 .row {
+  height: 12.5vh;
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  gap: 25px;
   align-items: center;
-  max-width: 100vw;
-  margin: auto;
+  max-width: 90vw;
+  margin: 10px auto;
+  transition: 0.5s;
+}
+
+.row:hover {
+  scale: 0.98;
 }
 
 .row img {
-  width: 30vw;
+  border-radius: 15px;
+  border: 1px solid black;
+  height: 10vh;
+  width: 25vw;
 }
 </style>
