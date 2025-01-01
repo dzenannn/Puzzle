@@ -9,7 +9,7 @@
       </div>
       <h2>{{ p.title }}</h2>
       <div class="play-button">
-        <button @click="selectPuzzle(p)">Igrajte</button>
+        <button @click="selectPuzzle(p)">Izaberi</button>
       </div>
     </div>
   </div>
@@ -32,6 +32,10 @@ export default {
   methods: {
     selectPuzzle(puzzle) {
       this.$emit("puzzle-changed", puzzle.id);
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
     },
   },
 };
