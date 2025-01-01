@@ -60,7 +60,7 @@ export default {
   background-color: rgb(206, 206, 206);
   border-radius: 10px;
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   max-width: 90vw;
   transition: 0.5s;
