@@ -4,7 +4,18 @@
     <button @click="start" id="start-button">Započni igru 🆕</button>
     <button @click="stop" id="quit-button">Zaustavi 🛑</button>
     <p>Proteklo vreme: {{ elapsedTime }} 🕐</p>
-
+    <p
+      v-if="isWinning"
+      style="
+        font-size: 1.5rem;
+        color: green;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 0 0 4px black;
+      "
+    >
+      Pobedili ste
+    </p>
     <div class="row">
       <div
         class="column"
@@ -15,17 +26,6 @@
         <img :src="require(`../assets/${puzzleId}/${s}`)" />
       </div>
     </div>
-    <p
-      v-if="isWinning"
-      style="
-        font-size: 2rem;
-        color: green;
-        text-align: center;
-        font-weight: bold;
-      "
-    >
-      Pobedili ste
-    </p>
   </div>
 </template>
 
@@ -139,8 +139,9 @@ export default {
 .row {
   margin: auto;
   display: flex;
-  max-width: 50vw;
+  width: 35vw;
   flex-wrap: wrap;
+  border: 1px solid black;
 }
 
 .column {

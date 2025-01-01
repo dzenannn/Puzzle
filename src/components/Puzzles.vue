@@ -3,11 +3,18 @@
     <h1 style="text-align: center; font-weight: bold">
       Izaberite slagalicu 👇
     </h1>
-    <div class="row" v-for="p of puzzles" :key="p.id" @click="selectPuzzle(p)">
-      <div>
-        <img :src="require(`../assets/${p.image}`)" />
+    <div class="puzzles">
+      <div
+        class="row"
+        v-for="p of puzzles"
+        :key="p.id"
+        @click="selectPuzzle(p)"
+      >
+        <div>
+          <img :src="require(`../assets/${p.image}`)" />
+        </div>
+        <h2>{{ p.title }}</h2>
       </div>
-      <h2>{{ p.title }}</h2>
     </div>
   </div>
 </template>
@@ -21,7 +28,6 @@ export default {
         { id: "cut-pink", image: "pink.jpg", title: "Roze Cvet" },
         { id: "cut-red", image: "red.jpg", title: "Crveni Cvet" },
         { id: "cut-purple", image: "purple.jpg", title: "Ljubičasti Cvet" },
-        { id: "cut-cs", image: "cs.jpg", title: "Kanter Strajk" },
       ],
     };
   },
@@ -40,17 +46,23 @@ export default {
 </script>
 
 <style scoped>
+.puzzles {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
 .row {
-  height: 12.5vh;
+  height: 11vh;
   padding: 10px;
   border: 1px solid rgb(0, 0, 0);
   background-color: rgb(206, 206, 206);
   border-radius: 10px;
   display: flex;
-  gap: 25px;
+  gap: 15px;
   align-items: center;
   max-width: 90vw;
-  margin: 10px auto;
   transition: 0.5s;
 }
 
@@ -63,5 +75,23 @@ export default {
   border: 1px solid black;
   height: 10vh;
   width: 25vw;
+}
+
+@media (min-width: 550px) {
+  .puzzles {
+    display: flex;
+  }
+
+  .row {
+    display: flex;
+    width: 20vw;
+  }
+
+  .row img {
+    border-radius: 15px;
+    border: 1px solid black;
+    height: 10vh;
+    width: 10vw;
+  }
 }
 </style>

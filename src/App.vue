@@ -8,7 +8,9 @@
   >
     <RecordsComponent />
   </div>
-  <div v-if="isChosen"><SliderPuzzle :puzzleId="selectedPuzzleId" /></div>
+  <div v-if="isChosen">
+    <SliderPuzzle :puzzleId="selectedPuzzleId" />
+  </div>
 </template>
 
 <script>
