@@ -34,7 +34,7 @@ export default {
           top: document.body.scrollHeight,
           behavior: "smooth",
         });
-      }, 150);
+      }, 200);
     },
   },
 };
