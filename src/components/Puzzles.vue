@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- test -->
     <h1 style="text-align: center; font-weight: bold">
       Izaberite slagalicu 👇
     </h1>
