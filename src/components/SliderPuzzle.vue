@@ -123,7 +123,7 @@ export default {
       this.currentDateTime = new Date();
     },
     recordSpeedRecords() {
-      let records = JSON.parse(localStorage.getItem("record")) || [];
+      let records = JSON.parse(localStorage.getItem("records")) || [];
       const { elapsedTime, elapsedDiff } = this;
       records.push({ elapsedTime, elapsedDiff });
       const sortedRecords = records
