@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h1>Zamenite mesta slikama da biste pobedili 🏁</h1>
-    <button @click="start" id="start-button">Započni igru 🆕</button>
-    <button @click="stop" id="quit-button">Zaustavi 🛑</button>
-    <p>Proteklo vreme: {{ elapsedTime }} 🕐</p>
+    <h1>Swap image parts to win game</h1>
+    <div style="gap: 20px; display: flex; justify-content: center">
+      <button :style="buttonStyle" @click="start" id="start-button">
+        Start
+      </button>
+      <button :style="buttonStyle" @click="stop" id="quit-button">Stop</button>
+    </div>
+    <p>Elapsed time: {{ elapsedTime }} 🕐</p>
     <p
       v-if="isWinning"
       style="
@@ -11,10 +15,9 @@
         color: green;
         text-align: center;
         font-weight: bold;
-        text-shadow: 0 0 4px black;
       "
     >
-      Pobedili ste
+      You won! Congratulations! 🎉
     </p>
     <div class="row">
       <div
@@ -62,6 +65,15 @@ export default {
       timer: undefined,
       startDateTime: new Date(),
       currentDateTime: new Date(),
+      buttonStyle: {
+        backgroundColor: "#3a7bd5",
+        color: "#fff",
+        border: "1px solid #fff",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        cursor: "pointer",
+        minWidth: "100px",
+      },
     };
   },
   computed: {

@@ -1,19 +1,18 @@
 <template>
-  <div>
-    <h1 style="text-align: center; font-weight: bold">
-      Izaberite slagalicu 👇
-    </h1>
-    <div class="puzzles">
-      <div
-        class="row"
-        v-for="p of puzzles"
-        :key="p.id"
-        @click="selectPuzzle(p)"
-      >
-        <div>
-          <img :src="require(`../assets/${p.image}`)" />
+  <div :style="puzzleClass">
+    <h1>Choose a puzzle 👇</h1>
+    <div class="map">
+      <div class="puzzles">
+        <div
+          class="puzzle"
+          v-for="p of puzzles"
+          :key="p.id"
+          @click="selectPuzzle(p)"
+        >
+          <div class="puzzle-img">
+            <img id="puzzleImg" :src="require(`../assets/${p.image}`)" />
+          </div>
         </div>
-        <h2>{{ p.title }}</h2>
       </div>
     </div>
   </div>
@@ -29,6 +28,13 @@ export default {
         { id: "cut-red", image: "red.jpg", title: "Crveni Cvet" },
         { id: "cut-purple", image: "purple.jpg", title: "Ljubičasti Cvet" },
       ],
+      puzzleClass: {
+        display: "flex",
+        flexDirection: "column",
+        placeItems: "center",
+        fontWeight: "bold",
+        textAlign: "center",
+      },
     };
   },
   methods: {
@@ -48,33 +54,41 @@ export default {
 <style scoped>
 .puzzles {
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10px;
-  gap: 20px;
+  /* margin-bottom: 10px; */
+  gap: 30px;
 }
 
-.row {
-  height: 11vh;
-  padding: 10px;
-  border: 1px solid rgb(0, 0, 0);
-  background-color: rgb(206, 206, 206);
-  border-radius: 10px;
+.puzzle-img {
+  width: 100%;
+  height: 100%;
   display: flex;
-  gap: 10px;
+  justify-content: center;
   align-items: center;
-  max-width: 90vw;
-  transition: 0.5s;
 }
 
-.row:hover {
+#puzzleImg {
+  height: 20vh;
+  width: 20vw;
+}
+
+.puzzle:hover {
+  transition: 0.25s;
   scale: 0.98;
 }
+.puzzle {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
 
-.row img {
-  border-radius: 15px;
-  border: 1px solid black;
-  height: 10vh;
-  width: 25vw;
+.puzzle img:hover {
+  transition: 0.25s;
+  scale: 1.05;
+}
+
+.puzzle img:active {
+  transition: 0.25s;
+  scale: 0.95;
 }
 
 @media (min-width: 550px) {
@@ -82,12 +96,12 @@ export default {
     display: flex;
   }
 
-  .row {
+  .puzzle {
     display: flex;
     width: 20vw;
   }
 
-  .row img {
+  .puzzle img {
     border-radius: 15px;
     border: 1px solid black;
     height: 10vh;
