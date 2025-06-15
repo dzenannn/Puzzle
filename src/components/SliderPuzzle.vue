@@ -13,6 +13,7 @@
       style="
         font-size: 1.5rem;
         color: green;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
         text-align: center;
         font-weight: bold;
       "
